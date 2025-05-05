@@ -1,4 +1,5 @@
-}import React from 'react';
+
+import React from 'react';
 import { Clock, Award, Package, Shield } from 'lucide-react';
 
 const AdvantagesSection: React.FC = () => {
@@ -21,7 +22,7 @@ const AdvantagesSection: React.FC = () => {
     {
       icon: <Shield className="h-12 w-12 text-accent" />,
       title: 'Фиксированная цена',
-      description: 'Стоимоeть ремонта не изменится после диагностики'
+      description: 'Стоимость ремонта не изменится после диагностики'
     }
   ];
 

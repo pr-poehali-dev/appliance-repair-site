@@ -1,4 +1,5 @@
 import React from 'react';
+import { Clock, Award, Package, Shield } from 'lucide-react';
 
 const AdvantagesSection: React.FC = () => {
   const advantages = [
