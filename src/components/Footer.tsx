@@ -1,83 +1,64 @@
-
 import React from 'react';
 
-const Footer: React.FC = () => {
+const AdvantagesSection: React.FC = () => {
+  const advantages = [
+    {
+      icon: <Clock className="h-12 w-12 text-accent" />,
+      title: 'Выезд в день обращения',
+      description: 'Мастер приедет в удобное для вас время в день обращения'
+    },
+    {
+      icon: <Award className="h-12 w-12 text-accent" />,
+      title: 'Сертифицированные мастера',
+      description: 'Наши специалисты имеют профильное образование и сертификаты'
+    },
+    {
+      icon: <Package className="h-12 w-12 text-accent" />,
+      title: 'Оригинальные запчасти',
+      description: 'Используем только оригинальные комплектующие с гарантией'
+    },
+    {
+      icon: <Shield className="h-12 w-12 text-accent" />,
+      title: 'Фиксированная цена',
+      description: 'Стоимость ремонта не изменится после диагностики'
+    }
+  ];
+
   return (
-    <footer className="bg-primary text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Логотип и описание */}
-          <div className="col-span-1 md:col-span-1">
-            <div className="text-2xl font-bold mb-4">
-              <span className="text-accent">Тех</span>Ремонт
+    <section id="advantages" className="py-24 relative gradient-bg">
+      <div className="texture-overlay"></div>
+      <div className="container mx-auto px-4 relative z-10">
+        <h2 className="text-3xl md:text-5xl font-bold text-center text-white mb-16">
+          Наши преимущества
+        </h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {advantages.map((advantage, index) => (
+            <div 
+              key={index}
+              className="card relative p-8 rounded-xl text-center transform transition-all duration-500 hover:-translate-y-2 overflow-hidden group"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-[#1e40af]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative z-10">
+                <div className="flex justify-center mb-5">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-[#1e40af] to-[#f97316] p-1 shadow-lg shadow-[#f97316]/20 flex items-center justify-center">
+                    {React.cloneElement(advantage.icon as React.ReactElement, { className: "h-10 w-10 text-white" })}
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold text-white mb-3">
+                  {advantage.title}
+                </h3>
+                <p className="text-gray-300">
+                  {advantage.description}
+                </p>
+              </div>
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#1e40af] to-[#f97316] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
             </div>
-            <p className="text-gray-300 text-sm mb-4">
-              Профессиональный ремонт бытовой техники с гарантией качества.
-              Работаем по всему городу с 2013 года.
-            </p>
-          </div>
-          
-          {/* Ссылки на разделы */}
-          <div className="col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Разделы сайта</h3>
-            <ul className="space-y-2">
-              <li><a href="#hero" className="text-gray-300 hover:text-accent transition-colors">Главная</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-accent transition-colors">Услуги</a></li>
-              <li><a href="#about" className="text-gray-300 hover:text-accent transition-colors">О компании</a></li>
-              <li><a href="#prices" className="text-gray-300 hover:text-accent transition-colors">Цены</a></li>
-              <li><a href="#testimonials" className="text-gray-300 hover:text-accent transition-colors">Отзывы</a></li>
-              <li><a href="#contacts" className="text-gray-300 hover:text-accent transition-colors">Контакты</a></li>
-            </ul>
-          </div>
-          
-          {/* Услуги */}
-          <div className="col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Наши услуги</h3>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-accent transition-colors">Ремонт стиральных машин</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-accent transition-colors">Ремонт холодильников</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-accent transition-colors">Ремонт плит</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-accent transition-colors">Ремонт посудомоечных машин</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-accent transition-colors">Ремонт микроволновых печей</a></li>
-            </ul>
-          </div>
-          
-          {/* Контакты */}
-          <div className="col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Контакты</h3>
-            <ul className="space-y-2">
-              <li className="text-gray-300">ул. Примерная, 123, г. Москва</li>
-              <li><a href="tel:+74951234567" className="text-gray-300 hover:text-accent transition-colors">+7 (495) 123-45-67</a></li>
-              <li><a href="mailto:info@techremont.ru" className="text-gray-300 hover:text-accent transition-colors">info@techremont.ru</a></li>
-              <li className="text-gray-300">Пн-Пт: 9:00 - 20:00</li>
-              <li className="text-gray-300">Сб-Вс: 10:00 - 18:00</li>
-            </ul>
-          </div>
-        </div>
-        
-        <hr className="border-gray-700 my-8" />
-        
-        {/* Нижняя часть футера */}
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-300 text-sm">
-            © {new Date().getFullYear()} ТехРемонт. Все права защищены.
-          </p>
-          
-          <div className="flex flex-col md:flex-row mt-4 md:mt-0 space-y-2 md:space-y-0 md:space-x-4 text-center md:text-left">
-            <a href="#" className="text-gray-300 hover:text-accent transition-colors text-sm">
-              Политика конфиденциальности
-            </a>
-            <a href="#" className="text-gray-300 hover:text-accent transition-colors text-sm">
-              Условия использования
-            </a>
-            <a href="#" className="text-gray-300 hover:text-accent transition-colors text-sm">
-              Карта сайта
-            </a>
-          </div>
+          ))}
         </div>
       </div>
-    </footer>
+    </section>
   );
 };
 
-export default Footer;
+export default AdvantagesSection;
